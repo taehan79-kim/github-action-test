@@ -6,7 +6,7 @@ on:
     branches:
       - "!main"
 env:
-  PROJECT_ID: boostcamp-ai-tech-serving # TODO: replace this with your project
+  PROJECT_ID: ascendant-pad-445604-e1 # TODO: replace this with your project
   GAR_REGION: ap-norhteast3
   REPOSITORY: model_deploy
   IMAGE: main
@@ -25,7 +25,7 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0.6.0'
         with:
-          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+          credentials_json: '${{ secrets.SERVICE_ACCOUNT_KEY }}'
           token_format: 'access_token'
 
       - uses: 'docker/login-action@v1'

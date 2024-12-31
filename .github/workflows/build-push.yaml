@@ -36,6 +36,11 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>= 363.0.0'
+      
+      # models 폴더 로컬 권한 부여
+      - name: 'Create models directory'
+        run: |
+          sudo chmod 777 /app/models
 
       # GCS에서 모델 파일 다운로드
       - name: 'Download model files from GCS'

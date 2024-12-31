@@ -37,10 +37,10 @@ jobs:
         with:
           version: '>= 363.0.0'
       
-      # models 폴더 로컬 권한 부여
+      # 현재 디렉토리에 models 폴더 생성
       - name: 'Create models directory'
         run: |
-          sudo chmod 777 /app/models
+          sudo mkdir -p /app/models
 
       # GCS에서 모델 파일 다운로드
       - name: 'Download model files from GCS'

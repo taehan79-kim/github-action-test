@@ -30,7 +30,9 @@ jobs:
 
       # Setup gcloud CLI
       - name: 'Set up Cloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v0'
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 363.0.0'
 
       # GCS에서 모델 파일 다운로드
       - name: 'Download model files from GCS'

@@ -41,6 +41,7 @@ jobs:
       - name: 'Create models directory'
         run: |
           sudo mkdir -p /app/models
+          sudo chmod 777 /app/models
 
       # GCS에서 모델 파일 다운로드
       - name: 'Download model files from GCS'

@@ -29,11 +29,11 @@ jobs:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
           token_format: 'access_token'
 
-      # Setup gcloud CLI
-      # - name: 'Set up Cloud SDK'
-      #   uses: 'google-github-actions/setup-gcloud@v2'
-      #   with:
-      #     version: '>= 363.0.0'
+      Setup gcloud CLI
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 363.0.0'
       
       # 현재 디렉토리에 models 폴더 생성
       - name: 'Create models directory'

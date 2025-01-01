@@ -167,7 +167,7 @@ async def detect_objects(request: ImageRequest):
 # 2) GPT 분석 관련 코드
 ##############################
 
-# (1) OpenAI API 키 설정 (실제 서비스 시 보안을 위해 환경변수 사용 권장)
+# (1) OpenAI API 키 설정 (실제 서비스 시 보안을 위해 환경변수 사용 권장) 
 api_key = "your_api_key"
 client = OpenAI(api_key=api_key)
 

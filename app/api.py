@@ -15,7 +15,7 @@ from models.person_func import analyze_person
 from models.tree_func import analyze_tree
 
 router = APIRouter()
-
+ 
 # house label
 house_label = {
     0: "집전체",

@@ -3,7 +3,7 @@ FROM python:3.12.3 as requirements-stage
 WORKDIR /tmp
 RUN pip install poetry && poetry --version
 COPY ./pyproject.toml ./poetry.lock* /tmp/
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+RUN poetry requirements > requirements.txt
 
 FROM python:3.12.3-slim
 

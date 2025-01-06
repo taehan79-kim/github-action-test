@@ -88,11 +88,3 @@ jobs:
           gcloud compute instances update-container "$GCE_INSTANCE" \
             --zone "$ZONE" \
             --container-image "$REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
-            
-      # GCE 인스턴스에서 이전 Docker 이미지 삭제(용량 관리)
-      # - name: 'Remove old Docker images on GCE instance'
-      #   run: |
-      #     gcloud compute ssh "$GCE_INSTANCE" --zone "$ZONE" --command "
-      #       # 최신 이미지만 남기고 나머지 이미지를 모두 삭제
-      #       docker images -q | grep -v $(docker images --filter 'reference=$REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA' -q) | xargs docker rmi
-      #     "

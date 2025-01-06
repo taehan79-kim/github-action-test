@@ -1,9 +1,17 @@
 FROM python:3.12.3 as requirements-stage
 
 WORKDIR /tmp
-RUN pip install poetry==1.6.1 && poetry --version
+
+# Poetry 설치 및 설정
+RUN pip install --no-cache-dir poetry==1.7.1 && \
+    poetry config virtualenvs.create false && \
+    poetry config installer.max-workers 10
+
 COPY ./pyproject.toml ./poetry.lock* /tmp/
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+# requirements.txt 생성
+RUN python -m poetry install --no-interaction --no-root && \
+    python -m poetry export --format requirements.txt --output requirements.txt --without-hashes
 
 FROM python:3.12.3-slim
 
@@ -26,7 +34,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY ./models /app/models
 COPY . /app
 
-# Contatiner status checker : Job schedular
+# Container status checker : Job scheduler
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/ || exit 1
 

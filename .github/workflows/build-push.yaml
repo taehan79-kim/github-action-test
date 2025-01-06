@@ -48,9 +48,9 @@ jobs:
       # GCS에서 모델 파일 다운로드
       - name: 'Download model files from GCS'
         run: |
-          gsutil cp gs://$GCS_BUCKET/house_model.pt /app/models/house_model.pt
-          gsutil cp gs://$GCS_BUCKET/person_model.pt /app/models/person_model.pt
-          gsutil cp gs://$GCS_BUCKET/tree_model.pt /app/models/tree_model.pt
+          gsutil cp gs://$GCS_BUCKET/house_model.pt app/models/house_model.pt
+          gsutil cp gs://$GCS_BUCKET/person_model.pt app/models/person_model.pt
+          gsutil cp gs://$GCS_BUCKET/tree_model.pt app/models/tree_model.pt
           
       - name: 'Verify model files'
         run: ls -l app/models/

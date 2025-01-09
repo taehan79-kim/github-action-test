@@ -9,7 +9,7 @@
 ### 명령어
 
 ```bash
-curl -X POST "http://127.0.0.1:8000/api/detect" \
+curl -X POST "http://127.0.0.1:8000/api/detect" \ 
 -H "Content-Type: application/json" \
 -d '{
   "image_type": "house",
